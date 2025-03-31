@@ -4,9 +4,14 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./config/connect.js";
 import { PORT } from "./config/config.js";
-
-
 const app = express();
+//routes
+//user routes
+import userRoutes from "./routes/user.js"
+app.use("/user",userRoutes)
+
+
+
 const corsOptions = {
   origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
