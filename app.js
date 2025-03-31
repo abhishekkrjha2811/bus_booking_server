@@ -9,8 +9,9 @@ const app = express();
 //user routes
 import userRoutes from "./routes/user.js"
 app.use("/user",userRoutes)
-
-
+ //bus routes
+import busRoutes from "./routes/bus.js"
+app.use("/bus",busRoutes)
 
 const corsOptions = {
   origin: "*",
