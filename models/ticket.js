@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose";
 const TickerSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User", required: true },
   bus: { type: Schema.Types.ObjectId, ref: "Bus", required: true },
-  date: { type: date, required: true },
+  date: { type: Date, required: true },
   seatNumber: [{ type: Number, required: true }],
   total_fare: { type: Number, required: true },
   status: {
