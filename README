@@ -1,0 +1,126 @@
+# Bus Booking Server
+
+This is the backend server for the Bus Booking application. It provides APIs and functionality to manage bus bookings, schedules, and user data.
+
+## Features
+
+- User authentication and management
+- Bus schedule management
+- Booking creation and management
+- API endpoints for client-side integration
+
+## Requirements
+- Operating System: Linux, macOS, or Windows
+- Git: Version control system to clone the repository
+- Postman or any API testing tool (optional, for testing API endpoints)
+- A modern code editor like Visual Studio Code (recommended)
+- Basic knowledge of JavaScript and Node.js
+- Internet connection for downloading dependencies and connecting to the database
+- AdminJS setup knowledge (optional, for customizing the admin panel)
+- Node.js (version >= 14.x)
+- MongoDB (or any other database as configured)
+- npm or yarn (for dependency management)
+
+## Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-repo/bus_booking_server.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd bus_booking_server
+    ```
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
+4. Configure environment variables:
+    - Create a `.env` file in the root directory.
+    - Add the necessary variables as described in the "Environment Variables Setup" section.
+
+5. Start the server:
+    ```bash
+    npm start
+    ```
+    npm start
+    ```
+
+## API Endpoints
+
+## Environment Variables Setup
+
+To run the server, you need to set up an `.env` file in the root directory of the project. Below are the required environment variables:
+
+- `PORT`: The port number on which the server will run (e.g., `3000`).
+- `DB_URI`: The connection string for the database (e.g., MongoDB URI).
+- `JWT_SECRET`: A secret key for signing JSON Web Tokens (JWT) for authentication.
+- `NODE_ENV`: The environment in which the server is running (`development`, `production`, etc.).
+- `ACCESS_TOKEN_SECRET`: A secret key for generating access tokens.
+- `ACCESS_TOKEN_EXPIRY`: Expiry duration for access tokens (e.g., `1d`).
+- `REFRESH_TOKEN_SECRET`: A secret key for generating refresh tokens.
+- `REFRESH_TOKEN_EXPIRY`: Expiry duration for refresh tokens (e.g., `30d`).
+- `COOKIE_PASSWORD`: A password for securing cookies.
+- `ADMIN_LOGIN_EMAIL`: The admin's login email.
+- `ADMIN_LOGIN_PASSWORD`: The admin's login password.
+- `GOOGLE_CLIENT_ID`: The Client ID for Google OAuth integration.
+
+### Example `.env` file:
+
+```env
+PORT=3000
+DB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/bus_booking?retryWrites=true&w=majority
+JWT_SECRET=your_jwt_secret
+NODE_ENV=development
+ACCESS_TOKEN_SECRET=your_access_token_secret
+ACCESS_TOKEN_EXPIRY=1d
+REFRESH_TOKEN_SECRET=your_refresh_token_secret
+REFRESH_TOKEN_EXPIRY=30d
+COOKIE_PASSWORD=your_cookie_password
+ADMIN_LOGIN_EMAIL=admin@example.com
+GOOGLE_CLIENT_ID=your_google_client_id
+
+```
+
+> **Note:** Replace placeholder values with your actual credentials. Do not share sensitive information publicly.
+|--------|-------------------|----------------------------|
+| POST   | /api/auth/login   | User login                |
+| POST   | /api/auth/register| User registration         |
+
+### Buses
+| Method | Endpoint          | Description                |
+|--------|-------------------|----------------------------|
+| GET    | /api/buses        | Fetch all buses           |
+| GET    | /api/buses/:id    | Fetch bus details by ID   |
+| POST   | /api/buses        | Add a new bus             |
+| PUT    | /api/buses/:id    | Update bus details        |
+| DELETE | /api/buses/:id    | Delete a bus              |
+
+### Bookings
+| Method | Endpoint          | Description                |
+|--------|-------------------|----------------------------|
+### Admin Panel
+
+The application includes an admin panel built using [AdminJS](https://adminjs.co/), a powerful library for creating admin interfaces. The admin panel provides the following features:
+
+- **Dashboard**: View system statistics, such as total bookings, users, and buses.
+- **User Management**: Manage user accounts, including viewing, editing, and deleting user details.
+- **Bus Management**: Add, update, or remove buses and their schedules.
+- **Booking Management**: View and manage all bookings, including cancellations and modifications.
+- **Reports**: Generate reports for bookings, revenue, and other metrics.
+
+The admin panel is accessible via a secure login using the credentials specified in the environment variables (`ADMIN_LOGIN_EMAIL` and `ADMIN_LOGIN_PASSWORD`).
+
+> **Note:** AdminJS is integrated into the application to streamline the management of resources. Ensure that only authorized personnel have access to the admin panel to maintain system security.
+| GET    | /api/bookings/:id | Fetch booking by ID        |
+| POST   | /api/bookings     | Create a new booking       |
+| PUT    | /api/bookings/:id | Update booking details     |
+| DELETE | /api/bookings/:id | Cancel a booking           |
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
